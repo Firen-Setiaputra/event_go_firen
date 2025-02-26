@@ -26,9 +26,18 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
+            ->topNavigation()
             ->login()
+            ->registration()
+            ->profile()
+            ->passwordReset()
             ->colors([
-                'primary' => Color::Amber,
+                'primary'   => Color::Purple,   // Warna utama: Ungu elegan & modern
+                'secondary' => Color::Teal,     // Warna sekunder: Hijau kebiruan yang unik
+                'success'   => Color::Lime,     // Warna sukses: Hijau muda segar
+                'danger'    => Color::Pink,     // Warna error: Merah muda vibrant
+                'warning'   => Color::Orange,   // Warna peringatan: Jingga mencolok
+                'info'      => Color::Blue,     // Warna info: Biru yang cerah
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
@@ -50,6 +59,7 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+                
             ])
             ->authMiddleware([
                 Authenticate::class,

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('deskripsi');
             $table->dateTime('tanggal_acara');
             $table->string('lokasi');
-            $table->string('poster');
+            $table->string('poster')->nullable();
             $table->string('kapasitas_maksimal');
             $table->timestamps();
         });
